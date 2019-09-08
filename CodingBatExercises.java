@@ -31,4 +31,15 @@ public class CodingBatExercises {
 		}
 		return false;
 	}
+	public boolean startHi(String str) {
+  		if(str.length() >= 2) {
+    		String var_ = str.substring(0,2);
+    		if(var_.equals("hi") == true) {
+      			return true;
+    		}
+    		return false;
+  		}
+  		return false;
+	}
+
 }
