@@ -442,6 +442,152 @@ public class CodingBatExercises {
 	  	return concat;
 	}
 
+	/*
+	Count the number of "xx" in the given string. 
+	We'll say that overlapping is allowed, so "xxx" contains 2 "xx".
+
+	countXX("abcxx") → 1
+	countXX("xxx") → 2
+	countXX("xxxx") → 3
+	*/
+	public int countXX(String str) {
+  		int count = 0;
+  		String arr[] = str.split("");
+  		for(int i = 0; i < arr.length - 1; i++) {
+    		if(arr[i].equals("x") && arr[i + 1].equals("x")) {
+	      			count += 1;
+	    	}
+  		}
+  		return count;
+	}
+
+	/*	
+	Given a string, return true if the 
+	first instance of "x" in the string is immediately followed by another "x".
+
+	doubleX("axxbb") → true
+	doubleX("axaxax") → false
+	doubleX("xxxxx") → true
+	*/
+
+	boolean doubleX(String str) {
+  		String arr [] = str.split("");
+  		String firstInstance = "";
+  		for(int i = 0; i < arr.length - 1; i++) {
+    		if(arr[i].equals("x")) {
+      			firstInstance = arr[i];
+      			if(arr[i + 1].equals(firstInstance)) {
+        			return true;
+      			}
+      			else {
+        			return false;
+      			}	
+    		}
+  		}
+  		return false;
+	}
+
+	/*
+	Given a string, return a new string made of every other char starting with the first, so "Hello" yields "Hlo".
+
+	stringBits("Hello") → "Hlo"
+	stringBits("Hi") → "H"
+	stringBits("Heeololeo") → "Hello"
+	*/
+
+	public String stringBits(String str) {
+  		String arr [] = str.split("");
+  		String concat = "";
+  		for(int i = 0; i < arr.length; i++) {
+    		if(i == 0 || i % 2 == 0) {
+      			concat += arr[i];
+    		}
+  		}
+  		return concat;
+	}
+
+	/*
+	Given a non-empty string like "Code" return a string like "CCoCodCode".
+
+	stringSplosion("Code") → "CCoCodCode"
+	stringSplosion("abc") → "aababc"
+	stringSplosion("ab") → "aab"
+	*/
+
+	public String stringSplosion(String str) {
+	 	String concat = "";
+	  	for(int i = 0; i <= str.length(); i++) {
+	    	concat += str.substring(0, i);
+	  	}
+	  	return concat;
+	}
+
+
+	/*
+	Given a string, return the count of the number of times that a substring 
+	length 2 appears in the string and also as the last 2 chars of the string, so "hixxxhi" yields 1 (we won't count the end substring).
+
+	last2("hixxhi") → 1
+	last2("xaxxaxaxx") → 1
+	last2("axxxaaxx") → 2
+	*/
+	public int last2(String str) {
+	  	int count = 0;
+	  	if(str.length() >= 2) {
+	    	String sub = str.substring(str.length() - 2,str.length());
+	    	for(int i = 0; i < str.length() - 2; i++) {
+	      		if(str.substring(i , i + 2).equals(sub)) {
+	        		count += 1;
+	      		}
+	    	}
+	    	return count;
+	  	}
+	  	else {
+	    	return 0;
+	  	}
+	}
+
+	/*
+	Given an array of ints, return the number of 9's in the array.
+
+	arrayCount9([1, 2, 9]) → 1
+	arrayCount9([1, 9, 9]) → 2
+	arrayCount9([1, 9, 9, 3, 9]) → 3
+	*/
+
+	public int arrayCount9(int[] nums) {
+  		int count = 0;
+  		for(int i = 0; i < nums.length; i++) {
+    		if(nums[i] == 9) {
+      			count += 1;
+    		}
+  		}
+  		return count;
+	}
+
+	/*
+	Given an array of ints, return true if one of the first 4 elements 
+	in the array is a 9. The array length may be less than 4.
+
+	arrayFront9([1, 2, 9, 3, 4]) → true
+	arrayFront9([1, 2, 3, 4, 9]) → false
+	arrayFront9([1, 2, 3, 4, 5]) → false
+
+	*/
+
+	public boolean arrayFront9(int[] nums) {
+  		for(int i = 0; i < nums.length; i++) {
+    		if(i <= 3 && nums[i] == 9) {
+      			return true;
+    		}
+  		}
+  		return false;
+	}
+
+
+
+
+
 
 
 	/*
