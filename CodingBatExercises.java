@@ -584,6 +584,80 @@ public class CodingBatExercises {
   		return false;
 	}
 
+	/*
+	Given an array of ints, return true if the sequence of numbers 1, 2, 3 
+	appears in the array somewhere.
+
+	array123([1, 1, 2, 3, 1]) → true
+	array123([1, 1, 2, 4, 1]) → false
+	array123([1, 1, 2, 1, 2, 3]) → true
+	*/
+
+	public boolean array123(int[] nums) {
+  		for(int i = 0; i < nums.length - 2; i++) {
+    		if(nums[i] == 1 && nums[i + 1] == 2 && nums[i + 2] == 3) {
+      			return true;
+    		}
+  		}
+  		return false;
+	}
+
+	/*
+	Given 2 strings, a and b, return the number of the positions where they contain the same length 2 substring. So "xxcaazz" and "xxbaaz" yields 3, since the "xx", "aa", and "az" substrings appear in the same place in both strings.
+
+	stringMatch("xxcaazz", "xxbaaz") → 3
+	stringMatch("abc", "abc") → 2
+	stringMatch("abc", "axc") → 0
+	*/
+
+	public int stringMatch(String a, String b) {
+  		int count = 0;
+  		int min; 
+  		if(a.length() < b.length()) {
+    		min = a.length();
+  		}
+  		else {
+    		min = b.length();
+  		}
+  
+  		for(int i = 0; i < min - 1; i++) {
+    		if(a.substring(i, i + 2).equals(b.substring(i, i + 2))) {
+      			count += 1;
+    		}
+  		}
+  		return count;
+	}
+
+	/*
+	Given a string, return a version where all the "x" have been removed. Except an "x" at the very start or end should not be removed.
+
+	stringX("xxHxix") → "xHix"
+	stringX("abxxxcd") → "abcd"
+	stringX("xabxxxcdx") → "xabcdx"
+	*/
+
+	public String stringX(String str) {
+  		if(str.length() == 1) {
+    		return str;
+  		}
+  
+  		String letter [] = str.split("");
+  		String concat = "";
+  		if(letter[0].equals("x")) {
+    		concat += "x";
+  		}
+  		for(int i = 0; i < letter.length; i++) {
+    		if(!(letter[i].equals("x"))) {
+      			concat += letter[i];
+    		}
+  		}
+  		if(letter[letter.length - 1].equals("x")) {
+    		concat += "x";
+  		}
+  		return concat;
+	}
+
+
 
 
 
